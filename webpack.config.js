@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: "./src/main.js",
   context: process.cwd(),
   mode: "development",
   output: {
@@ -10,7 +10,6 @@ module.exports = {
     filename: "bundle.js",
   },
   devServer: {
-    // contentBase: path.join(__dirname, "dist"), // 静态文件目录
     static: {
       // directory: path.join(__dirname, "dist"),
       publicPath: path.join(__dirname, "dist"),
