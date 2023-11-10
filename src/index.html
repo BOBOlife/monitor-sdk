@@ -11,25 +11,53 @@
 
   <div id="container">
     <div class="content">
-      <input type="button" value="click throw error" onclick="errorClick()">
-      <input type="button" value="click throw Promise error" onclick="promiseErrorClick()">
+      <input type="button" id="successBtn" value="ajax成功请求" onclick="sendSuccess()">
+      <input type="button" id="errorBtn" value="ajax失败请求" onclick="sendError()">
+      <!-- <input type="button" value="click throw error" onclick="errorClick()">
+      <input type="button" value="click throw Promise error" onclick="promiseErrorClick()"> -->
     </div>
   </div>
   <script>
-    function errorClick() {
-      window.someVariable.error = 'error';
-      // throw new Error("error");
+    function sendSuccess() {
+      const xhr = new XMLHttpRequest;
+      xhr.open('GET', '/success', true)
+      xhr.responseType = 'json'
+      xhr.onload = function () {
+        console.log(xhr.response);
+      }
+      xhr.send()
     }
-    function promiseErrorClick() {
-       new Promise((resolve, reject) => {
-        window.someVariable.error  = 'error';
-        // reject('error');
-      }).then(result => {
-        console.log(result);
-      })
+
+    function sendError() {
+
+      const xhr = new XMLHttpRequest;
+      xhr.open('POST', '/error', true)
+      xhr.responseType = 'json'
+      xhr.onload = function () {
+        console.log(xhr.response);
+      }
+      xhr.onerror = function (error) {
+        console.log(error)
+
+      }
+      xhr.send('name=wang')
+
     }
+
+    // function errorClick() {
+    //   window.someVariable.error = 'error';
+    //   // throw new Error("error");
+    // }
+    // function promiseErrorClick() {
+    //    new Promise((resolve, reject) => {
+    //     window.someVariable.error  = 'error';
+    //     // reject('error');
+    //   }).then(result => {
+    //     console.log(result);
+    //   })
+    // }
   </script>
-  <script src="/error.js" type="module"></script>
+  <!-- <script src="/error.js" type="module"></script> -->
 </body>
 
 </html>
