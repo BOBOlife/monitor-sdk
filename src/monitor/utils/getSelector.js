@@ -7,7 +7,7 @@ function getSelectors(path) {
     })
     .map((element) => {
       console.log("element", element.nodeName);
-      console.dir(element);
+      // console.dir(element);
       let selector = "";
       if (element.id) {
         return `${element.nodeName.toLowerCase()}#${element.id}`;
@@ -26,6 +26,7 @@ export default function (pathsOrTarget) {
     return getSelectors(pathsOrTarget);
   } else {
     let path = [];
+    // 单指针
     while (pathsOrTarget) {
       path.push(pathsOrTarget);
       pathsOrTarget = pathsOrTarget.parentNode;
