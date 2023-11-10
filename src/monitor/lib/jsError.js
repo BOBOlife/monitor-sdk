@@ -1,5 +1,6 @@
 import getLastEvent from "../utils/getLastEvent";
 import getSelector from "../utils/getSelector";
+import tracker from "../utils/tracker";
 
 export function injectJsError() {
   console.log("----------injectJsError----------");
@@ -21,6 +22,7 @@ export function injectJsError() {
       selector: lastEvent ? getSelector(lastEvent.composedPath()) : "", // 代表最后一个操作的元素
     };
     console.log("errorInfo:>>", log);
+    tracker.send(log);
   });
 }
 

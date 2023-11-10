@@ -21,9 +21,12 @@
       // throw new Error("error");
     }
     function promiseErrorClick() {
-      window.someVariable.error = new Promise((resolve, reject) => {
-        reject(new Error("error"));
-      });
+       new Promise((resolve, reject) => {
+        // window.someVariable.error  = 'error';
+        reject('error');
+      }).then(result => {
+        console.log(result);
+      })
     }
   </script>
 </body>
