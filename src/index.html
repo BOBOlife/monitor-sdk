@@ -10,39 +10,43 @@
 <body>
 
   <div id="container">
-    <div class="content">
-      <input type="button" id="successBtn" value="ajax成功请求" onclick="sendSuccess()">
-      <input type="button" id="errorBtn" value="ajax失败请求" onclick="sendError()">
+    <div class="content" style="width: 800px;word-wrap: break-word;">
+      xxx
+      <!-- <input type="button" id="successBtn" value="ajax成功请求" onclick="sendSuccess()"> -->
+      <!-- <input type="button" id="errorBtn" value="ajax失败请求" onclick="sendError()"> -->
       <!-- <input type="button" value="click throw error" onclick="errorClick()">
       <input type="button" value="click throw Promise error" onclick="promiseErrorClick()"> -->
     </div>
   </div>
   <script>
-    function sendSuccess() {
-      const xhr = new XMLHttpRequest;
-      xhr.open('GET', '/success', true)
-      xhr.responseType = 'json'
-      xhr.onload = function () {
-        console.log(xhr.response);
-      }
-      xhr.send()
-    }
+      let content = document.getElementsByClassName("content")[0];
+      content.innerHTML = "<span>$</span>".repeat(10000);
+      
+    // function sendSuccess() {
+    //   const xhr = new XMLHttpRequest;
+    //   xhr.open('GET', '/success', true)
+    //   xhr.responseType = 'json'
+    //   xhr.onload = function () {
+    //     console.log(xhr.response);
+    //   }
+    //   xhr.send()
+    // }
 
-    function sendError() {
+    // function sendError() {
 
-      const xhr = new XMLHttpRequest;
-      xhr.open('POST', '/error', true)
-      xhr.responseType = 'json'
-      xhr.onload = function () {
-        console.log(xhr.response);
-      }
-      xhr.onerror = function (error) {
-        console.log(error)
+    //   const xhr = new XMLHttpRequest;
+    //   xhr.open('POST', '/error', true)
+    //   xhr.responseType = 'json'
+    //   xhr.onload = function () {
+    //     console.log(xhr.response);
+    //   }
+    //   xhr.onerror = function (error) {
+    //     console.log(error)
 
-      }
-      xhr.send('name=wang')
+    //   }
+    //   xhr.send('name=wang')
 
-    }
+    // }
 
     // function errorClick() {
     //   window.someVariable.error = 'error';

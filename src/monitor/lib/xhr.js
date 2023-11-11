@@ -14,6 +14,9 @@ export default function injectXHR() {
   XMLHttpRequest.prototype.send = function (body) {
     if (this.logData) {
       let startTime = Date.now(); // 发送前记录一下开始的时间
+      // XMLHttpRequest readyState 01234
+      // status 2xx 304 成功 其它就是失败
+
       let handler = (type) => (event) => {
         // 持续时间
         let duration = Date.now() - startTime;
